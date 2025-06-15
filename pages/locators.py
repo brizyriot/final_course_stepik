@@ -1,20 +1,27 @@
 from selenium.webdriver.common.by import By
 
-
-class MainPageLocators:
+class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BTN_BASKET_BASE = (By.XPATH, "//a[@class='btn btn-default']")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
+class BasketPageLocators():
+    BASKET_DESCRIPTION_MESSAGE = (By.XPATH, "//h2[@class='col-sm-6 h3']")
+    BASKET_EMPTY_MESSAGE = (By.XPATH, "//*[@id='content_inner']/p")
 
-class LoginPageLocators:
-    LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
-    REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
+class LoginPageLocators():
+    LOGIN_FORM = (By.XPATH, "//*[@id='login_form']")
+    REGISTER_FORM = (By.XPATH, "//*[@id='register_form']")
+    INPUT_EMAIL = (By.XPATH, "//*[@id='id_registration-email']")
+    INPUT_PASSWORD = (By.XPATH, "//*[@id='id_registration-password1']")
+    INPUT_CONFIRM_PASSWORD = (By.XPATH, "//*[@id='id_registration-password2']")
+    BTN_REGISTER_SUBMIT = (By.XPATH, "//button[@name='registration_submit']")
 
-
-class ProductPageLocators:
-    # PAGE_LINK_NEW_YEAR = "http://selenium1py.pythonanywhere.com/ru/catalogue/the-shellcoders-handbook_209/?promo=newYear"
-    PAGE_LINK_NEW_YEAR = "http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/?promo=newYear2019"
-    ADD_TO_BASKET_BUTTON = (By.CSS_SELECTOR, "button.btn-add-to-basket")
-    PRODUCT_TITLE = (By.CSS_SELECTOR, ".row .product_main h1")
-    PRODUCT_PRICE = (By.CSS_SELECTOR, ".row .product_main p.price_color")
-    PRODUCT_IN_BASKET_NAME = (By.CSS_SELECTOR, "#messages > div:nth-child(1) > div > strong")
-    BASKET_PRICE = (By.CSS_SELECTOR, "#messages > div.alert-safe.alert-info > div > p:nth-child(1) > strong")
+class ProductPageLocators():
+    BTN_BASKET = (By.XPATH, "//button[@class='btn btn-lg btn-primary btn-add-to-basket']")
+    PRODUCT_NAME = (By.XPATH, "//*[@class='active']")
+    PRODUCT_PRICE = (By.XPATH, "//div[@class='col-sm-6 product_main']/p[@class='price_color']")
+    PRODUCT_NAME_BASKET = (By.XPATH, "//div[@class='alertinner ']/strong")
+    PRODUCT_PRICE_BASKET = (By.XPATH, "//div[@class='alertinner ']/p/strong")
+    SUCCESS_MESSAGE = (By.XPATH, "//*[@id='messages']/div[1]")

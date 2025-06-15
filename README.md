@@ -43,7 +43,7 @@
 Чтобы запустить тесты, используйте следующую команду:
 
 ```bash
-  python -m pytest -v --tb=line --language=en -m need_review
+  pytest -v --tb=line --language=en -m need_review
 ```
 
 Это запустит тесты, нуждающиеся в ревью и отобразит результаты в терминале.
